@@ -1,1 +1,0 @@
-#Hopers Dex Staking Contract
