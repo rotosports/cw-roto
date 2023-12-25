@@ -11,7 +11,7 @@ use cw20::{Cw20ExecuteMsg, Cw20ReceiveMsg};
 fn setup_contract(deps: DepsMut, env: Env) {
     let instantiate_msg = InstantiateMsg {
         lp_token_contract: "lp_token_contract".to_string(),
-        reward_token: Denom::Native("ujuno".to_string()),
+        reward_token: Denom::Native("ufury".to_string()),
         distribution_schedule: vec![(
             env.block.time.seconds(),
             env.block.time.seconds() + 86400,
@@ -192,7 +192,7 @@ fn test_withdraw() {
         CosmosMsg::Bank(BankMsg::Send {
             to_address: "user1".to_string(),
             amount: vec![Coin {
-                denom: "ujuno".to_string(),
+                denom: "ufury".to_string(),
                 amount: staker1_info.pending_reward
             }]
         })

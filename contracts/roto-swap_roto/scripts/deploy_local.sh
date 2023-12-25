@@ -4,8 +4,8 @@
 
 ## CONFIG
 # NOTE: you will need to update these to deploy on different network
-BINARY='docker exec -i cosmwasm junod'
-DENOM='ujuno'
+BINARY='docker exec -i cosmwasm furyad'
+DENOM='ufury'
 CHAIN_ID='testing'
 RPC='http://localhost:26657/'
 REST='http://localhost:1317/'
@@ -18,29 +18,29 @@ then
   exit
 fi
 
-# Deploy junod in Docker
+# Deploy furyad in Docker
 docker kill cosmwasm
 
-docker volume rm -f junod_data
+docker volume rm -f furyad_data
 
-# Run junod setup script
+# Run furyad setup script
 docker run --rm -it \
     -e STAKE_TOKEN=$DENOM \
     -e PASSWORD=xxxxxxxxx \
-    --mount type=volume,source=junod_data,target=/root \
-    ghcr.io/cosmoscontracts/juno:v3.1.0 /opt/setup_junod.sh $1
+    --mount type=volume,source=furyad_data,target=/root \
+    ghcr.io/furysport/furya:v3.1.0 /opt/setup_furyad.sh $1
 
-# Add custom app.toml to junod_data volume
-docker run -v junod_data:/root --name helper busybox true
-docker cp docker/app.toml helper:/root/.juno/config/app.toml
-docker cp docker/config.toml helper:/root/.juno/config/config.toml
+# Add custom app.toml to furyad_data volume
+docker run -v furyad_data:/root --name helper busybox true
+docker cp docker/app.toml helper:/root/.furya/config/app.toml
+docker cp docker/config.toml helper:/root/.furya/config/config.toml
 docker rm helper
 
-# Start junod
+# Start furyad
 docker run --rm -d --name cosmwasm -p 26657:26657 -p 26656:26656 -p 1317:1317 \
-    --mount type=volume,source=junod_data,target=/root \
+    --mount type=volume,source=furyad_data,target=/root \
     --platform linux/amd64 \
-    ghcr.io/cosmoscontracts/juno:v2.1.0 /opt/run_junod.sh
+    ghcr.io/furysport/furya:v2.1.0 /opt/run_furyad.sh
 
 # Compile code
 docker run --rm -v "$(pwd)":/code \

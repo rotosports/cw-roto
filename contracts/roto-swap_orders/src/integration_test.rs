@@ -124,7 +124,7 @@ fn bank_balance(router: &mut App, addr: &Addr, denom: String) -> Coin {
 fn test_instantiate() {
     let mut router = mock_app();
 
-    const NATIVE_TOKEN_DENOM: &str = "juno";
+    const NATIVE_TOKEN_DENOM: &str = "fury";
 
     let owner = Addr::unchecked("owner");
     let funds = coins(2000, NATIVE_TOKEN_DENOM);
@@ -199,7 +199,7 @@ fn test_instantiate() {
 fn amm_add_and_remove_liquidity() {
     let mut router = mock_app();
 
-    const NATIVE_TOKEN_DENOM: &str = "juno";
+    const NATIVE_TOKEN_DENOM: &str = "fury";
 
     let owner = Addr::unchecked("owner");
     let funds = coins(2000, NATIVE_TOKEN_DENOM);
@@ -526,7 +526,7 @@ fn amm_add_and_remove_liquidity() {
 fn migrate() {
     let mut router = mock_app();
 
-    const NATIVE_TOKEN_DENOM: &str = "juno";
+    const NATIVE_TOKEN_DENOM: &str = "fury";
     const IBC_TOKEN_DENOM: &str = "atom";
 
     let amm_id = router.store_code(contract_amm());
@@ -579,7 +579,7 @@ fn migrate() {
 fn swap_tokens_happy_path() {
     let mut router = mock_app();
 
-    const NATIVE_TOKEN_DENOM: &str = "juno";
+    const NATIVE_TOKEN_DENOM: &str = "fury";
 
     let owner = Addr::unchecked("owner");
     let funds = coins(2000, NATIVE_TOKEN_DENOM);
@@ -777,7 +777,7 @@ fn swap_tokens_happy_path() {
 fn swap_with_fee_split() {
     let mut router = mock_app();
 
-    const NATIVE_TOKEN_DENOM: &str = "juno";
+    const NATIVE_TOKEN_DENOM: &str = "fury";
 
     let owner = Addr::unchecked("owner");
     let protocol_fee_recipient = Addr::unchecked("protocol_fee_recipient");
@@ -1005,7 +1005,7 @@ fn swap_with_fee_split() {
 fn update_config() {
     let mut router = mock_app();
 
-    const NATIVE_TOKEN_DENOM: &str = "juno";
+    const NATIVE_TOKEN_DENOM: &str = "fury";
 
     let owner = Addr::unchecked("owner");
     let funds = coins(2000, NATIVE_TOKEN_DENOM);
@@ -1117,7 +1117,7 @@ fn update_config() {
 fn swap_native_to_native_tokens_happy_path() {
     let mut router = mock_app();
 
-    const NATIVE_TOKEN_DENOM: &str = "juno";
+    const NATIVE_TOKEN_DENOM: &str = "fury";
     const IBC_TOKEN_DENOM: &str = "atom";
 
     let owner = Addr::unchecked("owner");
@@ -1319,7 +1319,7 @@ fn swap_native_to_native_tokens_happy_path() {
 fn token_to_token_swap_with_fee_split() {
     let mut router = mock_app();
 
-    const NATIVE_TOKEN_DENOM: &str = "juno";
+    const NATIVE_TOKEN_DENOM: &str = "fury";
 
     let owner = Addr::unchecked("owner");
     let protocol_fee_recipient = Addr::unchecked("protocol_fee_recipient");
@@ -1534,7 +1534,7 @@ fn token_to_token_swap_with_fee_split() {
 fn test_pass_through_swap() {
     let mut router = mock_app();
 
-    const NATIVE_TOKEN_DENOM: &str = "juno";
+    const NATIVE_TOKEN_DENOM: &str = "fury";
 
     let owner = Addr::unchecked("owner");
     let funds = coins(2000, NATIVE_TOKEN_DENOM);
@@ -1724,7 +1724,7 @@ fn test_pass_through_swap() {
 fn test_pass_through_swap_alternative_positions() {
     let mut router = mock_app();
 
-    const NATIVE_TOKEN_DENOM: &str = "juno";
+    const NATIVE_TOKEN_DENOM: &str = "fury";
     // For edge case testing invalid inputs
     const WRONG_DENOM: &str = "WRONG_DENOM";
 
